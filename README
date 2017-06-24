@@ -7,13 +7,13 @@ The anticipated use cases are:
 If making use of this code or the generated auxiliary files, please cite the descriptor paper:
 Ranjan, S., Todd, Zoe. R., Sutherland, John D., and Sasselov, Dimitar D. "Planetary Sources for Reducing Sulfur Compounds for Cyanosulfidic Origins of Life Chemistry". Submitted (2017).
 
-Questions and feedback welcome! Please send any comments or questions to: Sukrit Ranjan, sranjan@cfa.harvard.edu.
+Questions and feedback welcome! Please send any comments or questions to: Sukrit Ranjan (sranjan@cfa.harvard.edu), or to Zoe Todd (zoe.todd@cfa.harvard.edu)
 
 ==========================
 ===HOW TO USE
 ==========================
 TO REPRODUCE THE FIGURES IN THE MAIN TEXT OF THE PAPER:
-To generate the plots used in our main paper, run compute_h2s_so2_v12.py (i.e "python compute_h2s_so2_v12.py"). This script performs the equilibrium chemistry calculations, and plots the radiative transfer calculations. Note that before you can plot the RT calculations, you must run the radiative transfer code.
+To generate the plots used in our main paper, run compute_h2s_so2_v13.py (i.e "python compute_h2s_so2_v13.py"). This script performs the equilibrium chemistry calculations, and plots the radiative transfer calculations. Note that before you can plot the RT calculations, you must run the radiative transfer code. You choose which plots are generated via the True/False switches in the code.
 
 
 

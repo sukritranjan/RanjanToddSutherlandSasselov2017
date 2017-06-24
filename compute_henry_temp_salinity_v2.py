@@ -84,6 +84,15 @@ def correct_H_temp_jpl(A, B, C,T):
 	H_corrected=np.exp(A+B/T+C*np.log(T)) #from page 5-9 of Burkholder et al 2015
 	return H_corrected*bar2atm
 
+
+###print correct_H_temp_jpl(A_h2s_jpl, B_h2s_jpl, C_h2s_jpl, 273.15)
+###print correct_H_temp_jpl(A_h2s_jpl, B_h2s_jpl, C_h2s_jpl, 298.15)
+###print correct_H_temp_jpl(A_h2s_jpl, B_h2s_jpl, C_h2s_jpl, 323.15)
+
+###print correct_H_temp_jpl(A_so2_jpl, B_so2_jpl, C_so2_jpl, 273.15)
+###print correct_H_temp_jpl(A_so2_jpl, B_so2_jpl, C_so2_jpl, 298.15)
+###print correct_H_temp_jpl(A_so2_jpl, B_so2_jpl, C_so2_jpl, 323.15)
+
 def correct_H_NaCl_salinity_jpl(H, h_g_0, h_t, T, conc_NaCl):
 	"""
 	This function calculates the Henry's Law constant as a function of salinity. It assumes NaCl is the SOLE source of salinity.
@@ -113,8 +122,8 @@ def correct_H_NaCl_salinity_jpl(H, h_g_0, h_t, T, conc_NaCl):
 ###Evaluate over range of temperature, salinity
 ########################
 
-T_list=np.arange(278., 319., step=1.) #temperatures to try, K
-conc_NaCl_list=10.**(np.arange(-6.,2., step=1.)) #[NaCl] to try, M
+T_list=np.arange(273.15, 324.15, step=1.) #temperatures to try, K
+conc_NaCl_list=10.**(np.arange(-6.,1., step=1.)) #[NaCl] to try, M
 
 
 ###
@@ -128,7 +137,7 @@ H_h2s_conc_NaCl=correct_H_NaCl_salinity_jpl(H_0_h2s_jpl, h_g_0_h2s_jpl, h_t_h2s_
 ##################################
 #############Plot: temp
 ##################################
-fig, ax=plt.subplots(2, figsize=(6., 7.), sharex=False, sharey=False)
+fig, ax=plt.subplots(2, figsize=(6., 7.), sharex=True, sharey=False)
 markersizeval=5.
 
 ax[0].set_title(r'Dependence of H$_{SO2}$ and H$_{H2S}$ on $T$')
@@ -147,6 +156,7 @@ ax[1].set_ylabel(r'H$_{SO2}$ (M/bar)')
 ax[1].set_yscale('linear')
 #ax[1].legend(loc=0, fontsize=10)
 ax[1].axvline(T_0_sander, color='blue', linestyle='--')
+ax[1].set_xlim([273.15, 323.15])
 
 plt.savefig('./Plots/h2s_so2_henry_temp_dep.pdf', orientation='portrait',papertype='letter', format='pdf')
 
