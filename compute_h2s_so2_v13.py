@@ -616,7 +616,7 @@ if run_ph2s_pso2_chem:
 	ax[0,0].set_title('[H2S]')
 	ax[1,0].set_title('[HS-]')
 	ax[0,1].set_title('[S(2-)]')
-	ax[1,1].set_title('[pH]')
+	ax[1,1].set_title('pH')
 
 
 	for pH_ind in range(0, len(pH_list)):
@@ -737,13 +737,15 @@ if run_ph2s_pso2_chem:
 	ax[2,0].set_xscale('log')
 	ax[2,0].set_ylabel('[SO3(2-)] (M)')
 	ax[2,0].set_yscale('log')
+	ax[2,0].set_xlabel('pSO2 (bar)')
 
-	ax[1,1].set_xlabel('pSO2 (bar)')
 	ax[1,1].set_xscale('log')
 	ax[1,1].set_ylabel('HS2O5(-)')
 	ax[1,1].set_yscale('log')
 	ax[1,1].set_yscale('log')
 	ax[1,1].set_xticks(p_so2_list)
+	ax[1,1].set_yticks(10.**np.arange(-23, 3, step=3))
+
 
 	ax[2,1].set_xlabel('pSO2 (bar)')
 	ax[2,1].set_xscale('log')
@@ -929,6 +931,8 @@ if run_rt_plot:
 	colors=cm.rainbow(np.linspace(0,1,len(phi_s_list[:-2])))
 
 	elt_list=np.array(['3e9', '1e10', '3e10', '1e11', '3e11', '1e12'])
+	label_list=np.array([r'3$\times 10^9$', r'1$\times 10^{10}$', r'3$\times 10^{10}$', r'1$\times 10^{11}$', r'3$\times 10^{11}$', r'1$\times 10^{10}$'])
+
 	for ind in range(0, len(phi_s_list[:-3])):
 		elt=elt_list[ind]
 		twostr_wav, twostr_toa, twostr_surfint=np.genfromtxt('./RT/TwoStreamOutput/hu2013_'+atmtype+'_sflux'+elt+'_exponential_aerosols.dat', skip_header=1, skip_footer=0,usecols=(2,3,6), unpack=True)
@@ -937,10 +941,10 @@ if run_rt_plot:
 		if ind==0:
 			ax.plot(twostr_wav, twostr_toa, markersize=markersizeval, linewidth=3, linestyle='-', color='black', label='TOA')
 		
-		ax.plot(twostr_wav, twostr_surfint, marker='s', markersize=markersizeval, linewidth=1, linestyle='-', color=colors[ind], label=r'$\phi_S$='+phi_s_list_labels[ind]+r' cm$^{-2}$ s$^{-1}$')
+		ax.plot(twostr_wav, twostr_surfint, marker='s', markersize=markersizeval, linewidth=1, linestyle='-', color=colors[ind], label=r'$\phi_S$='+label_list[ind]+r' cm$^{-2}$ s$^{-1}$')
 
 	ax.axvline(254., linestyle='--', color='black')
-	ax.legend(loc=0, ncol=2, borderaxespad=0., fontsize=14)
+	ax.legend(loc=0, ncol=2, borderaxespad=0., fontsize=13)
 	ax.set_xlabel('Wavelength (nm)', fontsize=18)
 	ax.set_xscale('linear')
 	ax.set_xlim([200., 300.])
