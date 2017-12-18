@@ -158,7 +158,7 @@ ax[1].set_yscale('linear')
 ax[1].axvline(T_0_sander, color='blue', linestyle='--')
 ax[1].set_xlim([273.15, 323.15])
 
-plt.savefig('./Plots/h2s_so2_henry_temp_dep.pdf', orientation='portrait',papertype='letter', format='pdf')
+plt.savefig('./Plots/h2s_so2_henry_temp_dep.eps', orientation='portrait',papertype='letter', format='eps')
 
 
 ##################################
@@ -187,6 +187,6 @@ ax[1].set_ylim([1.e-1, 1.e1])
 #ax[1].legend(loc=0, fontsize=10)
 #ax[1].axvline(0.6, color='blue', linestyle='--')
 
-plt.savefig('./Plots/h2s_so2_henry_nacl_dep.pdf', orientation='portrait',papertype='letter', format='pdf')
+plt.savefig('./Plots/h2s_so2_henry_nacl_dep.eps', orientation='portrait',papertype='letter', format='eps')
 
 plt.show()

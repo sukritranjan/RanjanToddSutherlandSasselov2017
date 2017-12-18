@@ -5,18 +5,13 @@ The anticipated use cases are:
 2. Extending the models of Ranjan, Todd, Sutherland and Sasselov (2017) for other applications.
 
 If making use of this code or the generated auxiliary files, please cite the descriptor paper:
-Ranjan, S., Todd, Zoe. R., Sutherland, John D., and Sasselov, Dimitar D. "Planetary Sources for Reducing Sulfur Compounds for Cyanosulfidic Origins of Life Chemistry". Submitted (2017).
+Ranjan, S., Todd, Zoe. R., Sutherland, John D., and Sasselov, Dimitar D. "Sulfidic Anion Concentrations on Early Earth for Surficial Origins-of-Life Chemistr". Submitted (2017).
 
 Questions and feedback welcome! Please send any comments or questions to: Sukrit Ranjan (sranjan@cfa.harvard.edu), or to Zoe Todd (zoe.todd@cfa.harvard.edu)
 
 ==========================
 ===HOW TO USE
 ==========================
-TO REPRODUCE THE FIGURES IN THE MAIN TEXT OF THE PAPER:
-To generate the plots used in our main paper, run compute_h2s_so2_v13.py (i.e "python compute_h2s_so2_v13.py"). This script performs the equilibrium chemistry calculations, and plots the radiative transfer calculations. Note that before you can plot the RT calculations, you must run the radiative transfer code. You choose which plots are generated via the True/False switches in the code.
-
-
-
 TO CALCULATE THE RADIATIVE TRANSFER:
 Go to the RT folder.
 1. Run form_atmospheric_profiles.py. This generates the atmospheric input files required by the code
@@ -24,6 +19,12 @@ Go to the RT folder.
 2. Run run_radiativetransfer.py. This code will then generate files giving various surface spectral parameters for different model atmospheres, including the TOA intensity, the surface flux, the surface actinic flux, the surface intensity, the diffuse and direct intensities at the surface. It will also print out diagnostic information to the prompt that will help you keep an eye on what the code is doing.
 
 3. To compute dose rates for the surface radiances calculated and stored in TwoStreamOutput by run_radiative_transfer.py, run compute_UV_doses.py
+
+
+TO REPRODUCE THE FIGURES IN THE MAIN TEXT OF THE PAPER:
+To generate Figures 1-4, run compute_h2s_so2_v14.py (i.e "python compute_h2s_so2_v14.py"). This script performs the equilibrium chemistry calculations, and plots the radiative transfer calculations. Note that before you can plot the RT calculations, you must run the radiative transfer code. You choose which plots are generated via the True/False switches in the code.
+
+To generate Figure 5, run redox_calc.py.
 
 TO PLOT THE FIGURES IN THE SI:
 Run compute_henry_temp_salinity_v2.py to generate the figures showing temperature and salinity dependence of the Henry's Law constants for H2S and SO2 in the SI.
